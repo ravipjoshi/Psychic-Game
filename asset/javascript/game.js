@@ -2,8 +2,10 @@ var letters = ["r","a","v","i","j","o","s","h","i"];
     var wins = document.getElementById("wins");
     var losses= document.getElementById("losses");
     var guess= document.getElementById("guess");
+    var guessleft = document.getElementById("guessleft");
     var wincnt=0;
     var loscnt=0;
+    var gsleft= letters.length;
     wins.innerText =wincnt;
     losses.innerText =loscnt;
     function guessletter()
@@ -22,8 +24,7 @@ var letters = ["r","a","v","i","j","o","s","h","i"];
            var userguess = event.key;
            
   
-           debugger;
-           
+             
            
            
           
@@ -37,9 +38,10 @@ var letters = ["r","a","v","i","j","o","s","h","i"];
            }
            else{
                  loscnt++;
+                 gsleft--;
                  losses.innerText=loscnt;
                  guess.append(userguess+",");
-
+                 guessleft.innerText=gsleft; 
 
            }
           }
