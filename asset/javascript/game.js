@@ -8,6 +8,7 @@ var letters = ["r","a","v","i","j","o","s","h","i"];
     var gsleft= letters.length;
     wins.innerText =wincnt;
     losses.innerText =loscnt;
+    guessleft.innerHTML=gsleft;
     function guessletter()
     {
         var letterguess = letters[Math.floor(Math.random() * letters.length)];
@@ -37,12 +38,16 @@ var letters = ["r","a","v","i","j","o","s","h","i"];
                //console.log(letterguess); 
            }
            else{
-                 loscnt++;
+                 
                  gsleft--;
-                 losses.innerText=loscnt;
                  guess.append(userguess+",");
                  guessleft.innerText=gsleft; 
-
+                  if(gsleft<0)
+                  {
+                    loscnt++;
+                    losses.innerText=loscnt;
+                    gsleft= letters.length;
+                  }
            }
           }
     
