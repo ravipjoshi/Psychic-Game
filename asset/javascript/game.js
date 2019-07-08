@@ -32,21 +32,33 @@ var letters = ["r","a","v","i","j","o","s","h","i"];
            if(letterguess==userguess){
               wincnt++;
               wins.innerText=wincnt;
+              debugger;
+              var gsleft2=letters.length;
+              guessleft.innerText=gsleft2;
+              gsleft=gsleft2;
+              guess.innerText=" ";
              letterguess = guessletter();
+            
+
              // guess.append(userguess+",");
               // var letterguess=letters.indexOf[Math.floor(Math.random() * letters.length)];
                //console.log(letterguess); 
            }
            else{
                  
-                 gsleft--;
-                 guess.append(userguess+",");
-                 guessleft.innerText=gsleft; 
-                  if(gsleft<0)
-                  {
+                 
+                  if(gsleft==0)
+                  { gsleft=letters.length;
+                    guessleft.innerText=gsleft;
+                    guess.innerText=" ";
                     loscnt++;
                     losses.innerText=loscnt;
-                    gsleft= letters.length;
+                    
+                  }
+                  else{
+                    gsleft--;
+                 guess.append(userguess+",");
+                 guessleft.innerText=gsleft; 
                   }
            }
           }
